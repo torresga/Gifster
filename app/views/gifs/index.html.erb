@@ -1,0 +1,12 @@
+<h1>Gifster</h1>
+
+<% if flash[:message] %>
+  <p><%= flash[:message] %></p>
+<% end %>
+
+<%= form_with(model: @gif) do |form| %>
+  <%= form.label :filename %>
+  <%= form.file_field :file %>
+
+  <%= form.submit %>
+<% end %>
