@@ -1,12 +1,18 @@
 <h1>Gifster</h1>
 
-<% if flash[:message] %>
-  <p><%= flash[:message] %></p>
-<% end %>
+<% if session[:user_id] %>
+  <%= form_with(url: logout_path, method: "delete") do |form| %>
+    <%= form.submit "Log Out" %>
+  <% end %>
 
-<%= form_with(model: @gif) do |form| %>
-  <%= form.label :filename %>
-  <%= form.file_field :file %>
+  <% if flash[:message] %>
+    <p><%= flash[:message] %></p>
+  <% end %>
 
-  <%= form.submit %>
+  <%= form_with(model: @gif) do |form| %>
+    <%= form.label :filename %>
+    <%= form.file_field :file %>
+
+    <%= form.submit %>
+  <% end %>
 <% end %>
