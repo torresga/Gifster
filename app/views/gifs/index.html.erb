@@ -17,6 +17,8 @@
   <% end %>
 <% end %>
 
+<%= will_paginate @gifs %>
+
 <ul>
 <% @gifs.each do |gif| %>
   <li><%= link_to gif.file.blob.filename.to_s, gif_path(gif) %></li>
