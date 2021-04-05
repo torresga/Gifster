@@ -1,6 +1,8 @@
 class GifsController < ApplicationController
   def index
     @gif = Gif.new
+
+    @gifs = Gif.all
   end
 
   def create
@@ -17,7 +19,10 @@ class GifsController < ApplicationController
       flash[:message] = "Success. Your file has been added"
       redirect_to gifs_path
     end
+  end
 
+  def show
+    @gif = Gif.find(params[:id])
   end
 
   private

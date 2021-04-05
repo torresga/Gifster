@@ -1,0 +1,7 @@
+<h1><%= @gif.file.blob.filename.to_s %></h1>
+
+<p>Created at: <%= @gif.created_at %></p>
+
+<%= image_tag(@gif.file) %>
+
+<%= link_to "Go Back", gifs_path %>
